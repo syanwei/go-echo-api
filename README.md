@@ -9,7 +9,7 @@
 
 #### 计划功能
 - [ ] 架构规范
-- [ ] 参数验证
+- [x] [参数验证](standard/validator/validator.md) 
 - [ ] 参数命名规范
 - [ ] SQLite加密和并发
 
@@ -22,5 +22,3 @@
 
 #### 参考文档
 - [echo官方文档](https://echo.labstack.com/)
-- [validator](https://github.com/go-playground/validator)
-- [参考](https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzAxNzY0NDE3NA==&action=getalbum&album_id=1406496244629127169&scene=173)

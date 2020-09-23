@@ -42,7 +42,9 @@ func main() {
 	validate := validator.New()
 
 	e := en.New()
+	// 返回UniversalTranslator实例
 	uniTrans := ut.New(e, e, zh.New(), zh_Hant_TW.New())
+	// Translator 接口实例。 返回给定语言环境的指定翻译器，未找到，返回 new 中的 fallback
 	translator, _ := uniTrans.GetTranslator("zh")
 	zhTranslate.RegisterDefaultTranslations(validate, translator)
 

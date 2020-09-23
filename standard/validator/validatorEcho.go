@@ -4,7 +4,6 @@ import (
 	"errors"
 	"github.com/go-playground/locales/en"
 	"github.com/go-playground/locales/zh"
-	"github.com/go-playground/locales/zh_Hant_TW"
 	ut "github.com/go-playground/universal-translator"
 	"github.com/go-playground/validator/v10"
 	"github.com/labstack/echo/v4"
@@ -50,15 +49,14 @@ func main() {
 	e := echo.New()
 	e.Debug = true
 
-	// setup japanese translation
-	vvv := validator.New()
+	validate := validator.New()
 
 	english := en.New()
-	uniTrans := ut.New(english, english, zh.New(), zh_Hant_TW.New())
+	uniTrans := ut.New(english, zh.New())
 	translator, _ := uniTrans.GetTranslator("zh")
-	zhTranslate.RegisterDefaultTranslations(vvv, translator)
+	_ = zhTranslate.RegisterDefaultTranslations(validate, translator)
 
-	e.Validator = &Validator{validator: vvv, trans: translator}
+	e.Validator = &Validator{validator: validate, trans: translator}
 
 	e.Any("/", func(ctx echo.Context) error {
 		user := new(UserEcho)
