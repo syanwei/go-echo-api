@@ -1,0 +1,12 @@
+.vscode
+.idea
+*.log
+*.conf
+*.history
+
+docs.go
+swagger.json
+swagger.yaml
+
+/vendor
+/hades
